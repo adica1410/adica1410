@@ -9,7 +9,7 @@
 
 ## About Me
 
-I'm an IT graduate and a Master's student specializing in Cybersecurity at International Burch University.
+I'm a Software Engineering graduate and a Master's student specializing in Cybersecurity at International Burch University.
 
 I'm passionate about exploring technology, improving software quality, and developing practical solutions through continuous learning.
 
