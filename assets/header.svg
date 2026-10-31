@@ -1,0 +1,40 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D1117"/>
+      <stop offset="100%" stop-color="#182638"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0%" stop-color="#7EE0C4"/>
+      <stop offset="100%" stop-color="#7B9CF1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="260" rx="18" fill="url(#bg)"/>
+
+  <circle cx="820" cy="40" r="125" fill="#7EE0C4" opacity="0.045"/>
+  <circle cx="790" cy="215" r="150" fill="#7B9CF1" opacity="0.05"/>
+
+  <rect x="55" y="47" width="48" height="4" rx="2" fill="url(#accent)"/>
+
+  <text x="55" y="82" fill="#90A7C5" font-size="15"
+        font-family="Arial, sans-serif" letter-spacing="3">
+    WELCOME TO MY GITHUB
+  </text>
+
+  <text x="55" y="142" fill="#F5F7FF" font-size="47"
+        font-weight="bold" font-family="Arial, sans-serif">
+    Ada Mahmutović
+  </text>
+
+  <text x="55" y="180" fill="#A9BCDA" font-size="21"
+        font-family="Arial, sans-serif">
+    IT Graduate | MSc Cybersecurity Student
+  </text>
+
+  <text x="55" y="218" fill="#7EE0C4" font-size="17"
+        font-family="Arial, sans-serif">
+    Curious by nature. Driven by purpose. Always learning.
+  </text>
+</svg>
