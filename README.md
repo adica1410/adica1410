@@ -18,15 +18,41 @@ I'm passionate about exploring technology, improving software quality, and devel
 - Interested in software development, security, and problem-solving
 - Always open to learning opportunities, collaboration, and new challenges
 
+
 ## Technical Skills
 
-**Languages:** JavaScript, Kotlin, Java, SQL
+### Programming Languages
+<p>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" />
+  <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" />
+  <img src="https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
+</p>
 
-**Testing:** Manual Testing, Playwright, Postman, API Testing
+### QA & Testing
+<p>
+  <img src="https://img.shields.io/badge/Manual_Testing-2C3E50?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/API_Testing-0A9396?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" />
+  <img src="https://img.shields.io/badge/Playwright-45BA63?style=for-the-badge&logo=playwright&logoColor=white" />
+</p>
 
-**Development:** HTML, CSS, Node.js, Express
+### Web Development
+<p>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Express-222222?style=for-the-badge&logo=express&logoColor=white" />
+</p>
 
-**Tools:** Git, GitHub, GitHub Actions, VS Code
+### Tools & Version Control
+<p>
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
+  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" />
+  <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" />
+</p>
+
 
 ## Featured Project
 
