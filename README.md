@@ -1,11 +1,7 @@
 
 <div align="center">
 
-# Ada Mahmutović
-
-### IT Graduate | MSc Cybersecurity Student
-
-*Curious, driven, and passionate about learning, building, and solving real-world problems.*
+![Ada Mahmutović - GitHub Profile Banner](assets/header.svg)
 
 </div>
 
