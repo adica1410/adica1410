@@ -15,14 +15,10 @@ from.setUTCFullYear(from.getUTCFullYear() - 1);
 const query = `
   query($login: String!, $from: DateTime!, $to: DateTime!) {
     user(login: $login) {
-      login
       contributionsCollection(from: $from, to: $to) {
         contributionCalendar {
           totalContributions
         }
-      }
-      repositories(privacy: PUBLIC) {
-        totalCount
       }
     }
   }
@@ -38,50 +34,80 @@ function escapeXml(value) {
   })[character]);
 }
 
-async function main() {
-  const response = await fetch("https://api.github.com/graphql", {
-    method: "POST",
+async function githubRequest(url, options = {}) {
+  const response = await fetch(url, {
+    ...options,
     headers: {
       Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
       "Content-Type": "application/json",
-      "User-Agent": "github-profile-stats"
-    },
-    body: JSON.stringify({
-      query,
-      variables: {
-        login: username,
-        from: from.toISOString(),
-        to: to.toISOString()
-      }
-    })
+      "User-Agent": "ada-github-profile-stats",
+      ...options.headers
+    }
   });
 
   if (!response.ok) {
-    throw new Error(`GitHub API error: ${response.status}`);
+    throw new Error(
+      `GitHub API error: ${response.status} ${response.statusText}`
+    );
   }
 
-  const result = await response.json();
+  return response.json();
+}
+
+async function main() {
+  // 1. Get public repository count
+  const profile = await githubRequest(
+    `https://api.github.com/users/${encodeURIComponent(username)}`
+  );
+
+  if (profile.login.toLowerCase() !== username.toLowerCase()) {
+    throw new Error("GitHub username mismatch");
+  }
+
+  const publicRepos = profile.public_repos;
+
+  if (!Number.isInteger(publicRepos)) {
+    throw new Error("Invalid public repository count");
+  }
+
+  // 2. Get contribution statistics
+  const result = await githubRequest(
+    "https://api.github.com/graphql",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        query,
+        variables: {
+          login: username,
+          from: from.toISOString(),
+          to: to.toISOString()
+        }
+      })
+    }
+  );
 
   if (result.errors?.length) {
     throw new Error(JSON.stringify(result.errors));
   }
 
-  const user = result.data?.user;
+  const contributions =
+    result.data?.user?.contributionsCollection
+      ?.contributionCalendar?.totalContributions;
 
-  if (!user) {
-    throw new Error("GitHub user not found");
+  if (!Number.isInteger(contributions)) {
+    throw new Error("Invalid contribution count");
   }
 
-  const contributions =
-    user.contributionsCollection.contributionCalendar.totalContributions;
-
-  const publicRepos = user.repositories.totalCount;
-
+  // 3. Generate SVG card
   const svg = `
 <svg xmlns="http://www.w3.org/2000/svg"
-     width="800" height="240" viewBox="0 0 800 240">
+     width="800" height="240"
+     viewBox="0 0 800 240">
+
   <defs>
-    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="background"
+      x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0D1117"/>
       <stop offset="100%" stop-color="#1B2A40"/>
     </linearGradient>
@@ -144,10 +170,13 @@ async function main() {
 </svg>`;
 
   fs.mkdirSync("assets", { recursive: true });
-  fs.writeFileSync("assets/github-stats.svg", svg.trim() + "\n");
+  fs.writeFileSync(
+    "assets/github-stats.svg",
+    svg.trim() + "\n"
+  );
 
-  console.log(`Contributions: ${contributions}`);
   console.log(`Public repositories: ${publicRepos}`);
+  console.log(`Contributions: ${contributions}`);
   console.log("Generated assets/github-stats.svg");
 }
 
