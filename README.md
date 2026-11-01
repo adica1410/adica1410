@@ -130,6 +130,19 @@ A collaborative academic DevOps project exploring cloud infrastructure, deployme
 
 ---
 
+
+---
+
+## GitHub Statistics
+
+<div align="center">
+
+![Ada's GitHub Activity](assets/github-stats.svg)
+
+</div>
+
+
+
 *Each project represents an opportunity to learn, collaborate, solve problems, and strengthen my technical skills.*
 
 <div align="center">
